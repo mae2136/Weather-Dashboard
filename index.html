@@ -16,25 +16,72 @@
 
 <body>
     <header>
-        <h1 class="p-3 bg-info bg-gradient text-center">Weather Dashboard</h1>
+        <h1 class="p-3 bg-info bg-gradient text-center fs-1 fw-bold">Weather Dashboard</h1>
     </header>
     <div class="container">
         <div class="row">
             <div class="col">
                 <form id="searchForm">
                     <div class="m-1">
-                        <label for="search" class="form-label">Search for a city</label><br>
-                        <input class="form-control" type="text" id="searchText">
+                        <label class="fs-3 fw-bold" for="search" class="form-label">Search for a city:</label><br>
+                        <input class="form-control" type="text" id="searchText" placeholder="Chicago">
                     </div>
                     <div class="m-1">
-                        <input type="submit" value="Search" id="searchBtn">
+                        <input class="btn btn-primary col-12" type="submit" value="Search" id="searchBtn">
                     </div>
                 </form>
             </div>
-            <div class="col-9">
+            <div class="col-8">
                 <div class="d-none row m-3 border border-info rounded" id="currentWeather">
                 </div>
-                <div class="d-none row m-3" id="weatherCards">daily weather</div>
+                <div class="row m-3" id="weatherCards">
+                    <h2 class="col-12">5 Day Forecast</h2>
+                    <div class="card row" style="width: 10rem;">
+                        <div class="card-body col">
+                          <h5 class="card-title">Date</h5>
+                          <img class="" src="" alt="weatherIcon">
+                          <h6 class="card-subtitle mb-2 text-muted">Temp: \xB0 F</h6>
+                          <h6 class="card-subtitle mb-2 text-muted">Wind: </h6>
+                          <h6 class="card-subtitle mb-2 text-muted">Humidity: </h6>
+                        </div>
+                    </div>
+                    <div class="card row" style="width: 10rem;">
+                        <div class="card-body col">
+                          <h5 class="card-title">Date</h5>
+                          <img class="" src="" alt="weatherIcon">
+                          <h6 class="card-subtitle mb-2 text-muted">Temp: \xB0 F</h6>
+                          <h6 class="card-subtitle mb-2 text-muted">Wind: </h6>
+                          <h6 class="card-subtitle mb-2 text-muted">Humidity: </h6>
+                        </div>
+                    </div>
+                    <div class="card row" style="width: 10rem;">
+                        <div class="card-body col">
+                          <h5 class="card-title">Date</h5>
+                          <img class="" src="" alt="weatherIcon">
+                          <h6 class="card-subtitle mb-2 text-muted">Temp: \xB0 F</h6>
+                          <h6 class="card-subtitle mb-2 text-muted">Wind: </h6>
+                          <h6 class="card-subtitle mb-2 text-muted">Humidity: </h6>
+                        </div>
+                    </div>
+                    <div class="card row" style="width: 10rem;">
+                        <div class="card-body col">
+                          <h5 class="card-title">Date</h5>
+                          <img class="" src="" alt="weatherIcon">
+                          <h6 class="card-subtitle mb-2 text-muted">Temp: \xB0 F</h6>
+                          <h6 class="card-subtitle mb-2 text-muted">Wind: </h6>
+                          <h6 class="card-subtitle mb-2 text-muted">Humidity: </h6>
+                        </div>
+                    </div>
+                    <div class="card row" style="width: 10rem;">
+                        <div class="card-body col">
+                          <h5 class="card-title">Date</h5>
+                          <img class="" src="" alt="weatherIcon">
+                          <h6 class="card-subtitle mb-2 text-muted">Temp: \xB0 F</h6>
+                          <h6 class="card-subtitle mb-2 text-muted">Wind: </h6>
+                          <h6 class="card-subtitle mb-2 text-muted">Humidity: </h6>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

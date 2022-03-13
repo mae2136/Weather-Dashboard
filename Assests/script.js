@@ -42,12 +42,11 @@ function renderWeather(weatherData) {
     var icon = weatherIcon(weatherData);
     currentWeatherEl.innerHTML = `
         <h2 class="p-2">${weatherData.name} (${weatherData.dt}) <img class="" src="${icon}" alt="weatherIcon"></h2>
-        <h3 class="p-2">Temp: ${weatherData.main.temp} \xB0F</h3>
+        <h3 class="p-2">Temp: ${weatherData.main.temp}\xB0 F</h3>
         <h3 class="p-2">Wind: ${weatherData.wind.speed} MPH</h3
-        ><h3 class="p-2">Humidity: ${weatherData.main.humidity} %</h3>
-        <h3 class="p-2">UV Index: ${weatherData.main.temp}</h3>`;
+        ><h3 class="p-2">Humidity: ${weatherData.main.humidity} %</h3>`;
     currentWeatherEl.classList.remove(`d-none`);
-    weatherCards.innerHTML = "";
+    forecast(weatherData);
 }
 // Includes temp, wind, humidity, UV index
 // Convert temperature from Kelvins to F
@@ -61,4 +60,27 @@ function weatherIcon(weatherData) {
 }
 // UV index is color coded for favorable, moderate, severe
 // Display 5 day forecast via 5 cards
+function forecast(weatherData) {
+    weatherCardChildren = weatherCards.children;
+    var forecastUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${weatherData.coord.lat}&lon=${weatherData.coord.lon}&units=imperial&exclude=minutely,hourly&appid=${key}`;
+    fetch(forecastUrl)
+        .then(function (response) {
+            if (response.status === 200) {
+                // Parse response
+                response.json()
+                    .then(function (forecastData) {
+                        weatherCards.classList.remove(`d-none`);
+                        currentWeatherEl.innerHTML += `
+                        <h3 class="p-2">UV Index: ${forecastData.current.uvi}</h3>`;
+                        for (let i = 0; i < 5; i++) {
+                            console.log(forecastData.daily[i]);
+                            // daily[i].dt for date, .tmp.day for temp, .wind
+                            // weatherCardChildren[0].append();
+                        }
+                    });
+            } else {
+                alert('Error: ' + response.statusText);
+            }
+        });
+}
 // Save user search term in a new input at end of the form
