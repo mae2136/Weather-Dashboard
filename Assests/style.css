@@ -1,3 +1,7 @@
 * {
     font-family: 'Roboto Slab', serif;
 }
+
+.bg-purple {
+    background-color: rgb(216, 206, 71);
+}
