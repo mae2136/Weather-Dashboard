@@ -5,6 +5,8 @@ var searchBtn = document.getElementById(`searchBtn`);
 var searchCity = document.getElementById(`searchText`);
 var currentWeatherEl = document.getElementById(`currentWeather`);
 var weatherCards = document.getElementById(`weatherCards`);
+// empty array to save search terms for localstorage
+const searches = [];
 // Grab search term from user form
 searchBtn.addEventListener('click', getWeather);
 
@@ -12,6 +14,7 @@ function getWeather(event) {
     event.preventDefault();
     // Store searched city name in variable
     var city = searchCity.value;
+    searches.push(city)
     // Clear search form
     searchCity.value = "";
     searchWeather(city);
